@@ -2,7 +2,7 @@ const fs = require("fs");
 const express = require("express");
 const path = require("path");
 const app = express();
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3001;
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -25,6 +25,12 @@ if (window.location.pathname === "/notes") {
 const show = (elem) => {
 	elem.style.display = "inline";
 };
+app.get("/api/notes", (req, res) => {
+	res.sendFile(path.join(__dirname, "/db/db.json"));
+});
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "/public/index.html"));
+});
 
 // Hide an element
 const hide = (elem) => {
