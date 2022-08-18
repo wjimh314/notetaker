@@ -16,12 +16,6 @@ if (window.location.pathname === "/notes") {
 const show = (elem) => {
 	elem.style.display = "inline";
 };
-app.get("/api/notes", (req, res) => {
-	res.sendFile(path.join(__dirname, "/db/db.json"));
-});
-app.get("*", (req, res) => {
-	res.sendFile(path.join(__dirname, "/public/index.html"));
-});
 
 // Hide an element
 const hide = (elem) => {
