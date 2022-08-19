@@ -21,6 +21,9 @@ function updateDb() {
 	fs.writeFile(db.json, JSON.stringify(data), (err) =>
 		err ? console.error(err) : console.info(`\nData written to ${db.json}`)
 	);
-	router.post(".db/db.json", (req, res));
+	router.post("data"), (req, res)
+	.then(res)) => res.json());
+	.then(data)) +> {'successful post request:,' data)};
+})
 }
 module.exports = router;
