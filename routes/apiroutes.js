@@ -9,21 +9,22 @@ router.get("/notes", function (req, res) {
 
 router.post("/notes", function (req, res) {
 	let newNote = req.body;
-	notes.push(newNote);
-	updateDb();
+	data.push(newNote);
+	fs.writeFileSync("../db/db.json", JSON.stringify(data));
+	res.json(data);
 });
 
 router.get("/api/notes", (req, res) => {
 	res.sendFile(path.join(__dirname, "/db/db.json"));
 });
 
-function updateDb() {
-	fs.writeFile(db.json, JSON.stringify(data), (err) =>
-		err ? console.error(err) : console.info(`\nData written to ${db.json}`)
-	);
-	router.post("data"), (req, res)
-	.then(res)) => res.json());
-	.then(data)) +> {'successful post request:,' data)};
-})
-}
+//function updateDb() {
+//fs.writeFile(db.json, JSON.stringify(data), (err) =>
+//err ? console.error(err) : console.info(`\nData written to ${db.json}`)
+//	);
+//	router.post("data"), (req, res);
+//	.then(res => res.json());
+//	.then(data  => {('successful post request':, data ))}
+
+//}
 module.exports = router;
