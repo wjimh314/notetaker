@@ -10,7 +10,7 @@ router.get("/notes", function (req, res) {
 router.post("/notes", function (req, res) {
 	let newNote = req.body;
 	data.push(newNote);
-	fs.writeFileSync("../db/db.json", JSON.stringify(data));
+	fs.writeFileSync("./db/db.json", JSON.stringify(data));
 	res.json(data);
 });
 
